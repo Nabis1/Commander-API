@@ -9,7 +9,14 @@ namespace Commander.Controllers
     [ApiController]
     public class CommandsController : ControllerBase
     {
-        private readonly MockCommanderRepository _repository = new MockCommanderRepository();
+        private readonly ICommanderRepository _repository;
+
+        public CommandsController(ICommanderRepository repository)
+        {
+            _repository  = repository;
+        }
+
+        //private readonly MockCommanderRepository _repository = new MockCommanderRepository();
         //GET api/commands/
         [HttpGet]
         public ActionResult<IEnumerable<Command>> GetAllCommands() 
@@ -23,7 +30,7 @@ namespace Commander.Controllers
         [HttpGet("{id}")]
         public ActionResult<Command> GetCommandById(int id)
         {
-            var commandItem = _repository.GetCommandByID(id);
+            var commandItem = _repository.GetCommand(id);
             return Ok(commandItem);
         }
     }
