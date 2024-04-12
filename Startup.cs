@@ -1,4 +1,5 @@
 ﻿using Commander.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Commander
 {
@@ -14,6 +15,8 @@ namespace Commander
         //This method gets Called by the runtime. Use this method to add services to the containter.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CommanderConnection")));
+
             services.AddControllers();
 
             services.AddScoped<ICommanderRepository,MockCommanderRepository>();
