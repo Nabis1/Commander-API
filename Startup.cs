@@ -19,7 +19,9 @@ namespace Commander
 
             services.AddControllers();
 
-            services.AddScoped<ICommanderRepository,MockCommanderRepository>();
+            //services.AddScoped<ICommanderRepository,MockCommanderRepository>();
+
+            services.AddScoped<ICommanderRepository,SqlCommanderRepository>();
         }
         //This method gets Called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

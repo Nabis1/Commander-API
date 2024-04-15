@@ -16,14 +16,10 @@ namespace Commander.Data
             return commands;
         }
 
-        public Command GetCommand(int id)
+        public Command GetCommandById(int id)
         {
             return new Command { Id = 0, HowTo = "Boil an egg", Line = "Boil Water", Platform = "Kettle & Pan" };
         }
 
-        internal object GetCommandByID(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
