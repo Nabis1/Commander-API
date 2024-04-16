@@ -19,7 +19,7 @@ namespace Commander
 
             services.AddControllers();
 
-            //services.AddScoped<ICommanderRepository,MockCommanderRepository>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<ICommanderRepository,SqlCommanderRepository>();
         }
